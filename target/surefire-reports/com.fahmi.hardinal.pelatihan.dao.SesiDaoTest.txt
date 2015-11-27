@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.fahmi.hardinal.pelatihan.dao.SesiDaoTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.257 sec - in com.fahmi.hardinal.pelatihan.dao.SesiDaoTest
