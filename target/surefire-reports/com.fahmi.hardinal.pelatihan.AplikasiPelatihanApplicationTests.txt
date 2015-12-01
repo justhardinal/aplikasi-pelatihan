@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.fahmi.hardinal.pelatihan.AplikasiPelatihanApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.237 sec - in com.fahmi.hardinal.pelatihan.AplikasiPelatihanApplicationTests
