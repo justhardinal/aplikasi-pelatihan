@@ -30,7 +30,7 @@ public class PesertaDaoTest {
     @Autowired
     private DataSource ds;
     
-    
+    //@Test
     public void testInsert() throws SQLException {
         Peserta p = new Peserta();
         p.setNama("Peserta 001");

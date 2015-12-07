@@ -11,10 +11,10 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        <div>Aplikasi Spring Boot dengan Thymeleaf</div>
+        <h1>Aplikasi Spring Boot dengan Thymeleaf</h1>
         <ul>
-            <li>Waktu : ${waktu}</li>
-            <li>Nama : ${nama}</li>
+            <li th:text="'Waktu  : '+${waktu}">ini akan diisi waktu</li>
+            <li th:text="'Nama Nya  : '+${nama}">ini akan diisi nama</li>
         </ul>
     </body>
 </html>
