@@ -30,7 +30,15 @@ public class PesertaDaoTest {
     @Autowired
     private DataSource ds;
     
-    //@Test
+    @After
+    public void hapusData() throws Exception{
+        String sql="delete from peserta where email='peserta001gmail.com'";
+         try (Connection c = ds.getConnection()) {
+             c.createStatement().executeUpdate(sql);
+         }
+    }
+    
+    @Test
     public void testInsert() throws SQLException {
         Peserta p = new Peserta();
         p.setNama("Peserta 001");
@@ -70,11 +78,5 @@ public class PesertaDaoTest {
         
     }
     
-    @After
-    public void hapusData() throws Exception{
-        String sql="delete from peserta where email='peserta001gmail.com'";
-         try (Connection c = ds.getConnection()) {
-             c.createStatement().executeUpdate(sql);
-         }
-    }
+    
 } 
