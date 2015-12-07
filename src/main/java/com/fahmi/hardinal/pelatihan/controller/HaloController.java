@@ -30,5 +30,4 @@ public class HaloController {
         hasil.addAttribute("waktu", new Date());
     }
     
-    
 }

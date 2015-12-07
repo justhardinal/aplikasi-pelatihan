@@ -29,7 +29,15 @@ and open the template in the editor.
                     <td  th:text ="${p.email}">hardinal.fahmi@gmail.com</td>
                     <td  th:text ="${p.tanggalLahir}">2015-10-10</td>
                     <td>
-                        Edit | Lihat | Hapus  
+                        <a href="form.html" th:href="@{/peserta/form(id=${p.id})}">
+                            Edit
+                        </a>|
+                        <a href="view.html" th:href="@{/peserta/view(id=${p.id})}">
+                            Lihat
+                        </a>|
+                        <a href="form.html" th:href="@{/peserta/hapus(id=${p.id})}">
+                            Hapus
+                        </a>
                     </td>
                 </tr>
             </tbody>
