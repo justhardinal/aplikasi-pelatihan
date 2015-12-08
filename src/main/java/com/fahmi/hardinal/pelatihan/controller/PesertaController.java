@@ -2,7 +2,6 @@ package com.fahmi.hardinal.pelatihan.controller;
 
 import com.fahmi.hardinal.pelatihan.dao.PesertaDao;
 import com.fahmi.hardinal.pelatihan.entity.Peserta;
-import java.lang.reflect.Method;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
