@@ -19,52 +19,85 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/peserta")
 public class PesertaHtmlController {
-    @Autowired private PesertaDao pd;
-    
-    
+
+    @Autowired
+    private PesertaDao pd;
+
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dateFormat.setLenient(false);
-    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
-}
-    
-    @RequestMapping("/list")   
-    public void daftarPeserta(Model m){
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+    }
+
+    @RequestMapping("/list")
+    public void daftarPeserta(Model m) {
         m.addAttribute("daftarPeserta", pd.findAll());
     }
-    
+
     @RequestMapping("/hapus")
-    public String hapus(@RequestParam(value = "id") String id){
+    public String hapus(@RequestParam(value = "id") String id) {
         pd.delete(id);
         return "redirect:list";
     }
-    
+
     @RequestMapping(value = "/form", method = RequestMethod.GET)
-    public String tampilkanForm(@RequestParam(value = "id") String id,
-            Model m){
-        
+    public String tampilkanForm(Peserta peserta) {
+        return "/peserta/form";
+    }
+
+    @RequestMapping(value = "/form", method = RequestMethod.POST)
+    public String prosesForm(@Valid Peserta p, BindingResult error) {
+        if (error.hasErrors()) {
+            return "/peserta/form";
+        }
+
+        pd.save(p);
+        return "redirect:list";
+    }
+
+    @RequestMapping(value = "/edit{id}", method = RequestMethod.GET)
+    public String editForm(@RequestParam(value = "id") String id,
+            Model m) {
+
         //defaultnya isi dengan objek baru
         m.addAttribute("peserta", new Peserta());
-        
-        if(id !=null && !id.isEmpty()){
+
+        if (id != null && !id.isEmpty()) {
             Peserta p = pd.findOne(id);
-            if(p !=null){
+            if (p != null) {
                 m.addAttribute("peserta", p);
             }
         }
-        return "/peserta/form";
+        return "/peserta/edit";
     }
-    
-    @RequestMapping(value = "/form", method = RequestMethod.POST)
-    public String prosesForm(@Valid Peserta p, BindingResult error){
-        if(error.hasErrors()){
-            return "/peserta/form";
+
+    @RequestMapping(value = "/edit{id}", method = RequestMethod.POST)
+    public String prosesUpdateForm(@RequestParam(value = "id") String id,
+            @Valid Peserta p,
+            BindingResult error) {
+        if (error.hasErrors()) {
+            return "/peserta/edit";
         }
-        
+        p.setId(id);
         pd.save(p);
         return "redirect:list";
     }
     
-    
+    @RequestMapping(value = "/view{id}", method = RequestMethod.GET)
+    public String viewForm(@RequestParam(value = "id") String id,
+            Model m) {
+
+        //defaultnya isi dengan objek baru
+        m.addAttribute("peserta", new Peserta());
+
+        if (id != null && !id.isEmpty()) {
+            Peserta p = pd.findOne(id);
+            if (p != null) {
+                m.addAttribute("peserta", p);
+            }
+        }
+        return "/peserta/view";
+    }
+
 }

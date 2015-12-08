@@ -13,24 +13,27 @@ and open the template in the editor.
     </head>
     <body>
         <h1>Daftar Peserta</h1>
-        
+
         <table border="1">
             <thead>
                 <tr>
                     <th>Nama</th>
                     <th>Email</th>
                     <th>Tanggal Lahir</th>
-                    <th>&nbsp;</th>
+                    <th>AKSI</th>
                 </tr>
             </thead>
             <tbody>
+                <a href="form.html" th:href="@{/peserta/form}">
+                    Tambah
+                </a>
                 <tr th:each="p : ${daftarPeserta}">
-                    
+
                     <td th:text ="${p.nama}">Hardinal</td>
                     <td  th:text ="${p.email}">hardinal.fahmi@gmail.com</td>
                     <td  th:text ="${p.tanggalLahir}">2015-10-10</td>
                     <td>
-                        <a href="form.html" th:href="@{/peserta/form(id=${p.id})}">
+                        <a href="edit.html" th:href="@{/peserta/edit(id=${p.id})}">
                             Edit
                         </a>|
                         <a href="view.html" th:href="@{/peserta/view(id=${p.id})}">
@@ -44,7 +47,7 @@ and open the template in the editor.
             </tbody>
         </table>
 
-        
-        
+
+
     </body>
 </html>
