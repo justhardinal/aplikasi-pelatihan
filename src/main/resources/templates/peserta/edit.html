@@ -6,14 +6,14 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Edit Peserta</title>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
     <body>
-        <h1>Lihat Peserta</h1>
+        <h1>Edit Peserta</h1>
         
-        <form action="#" th:action="@{/peserta/form}" th:object="${peserta}" method="post">
+        <form action="#" th:action="@{/peserta/edit}" th:object="${peserta}" method="put">
             <table border="1">
                 <tbody>
                     <tr>
@@ -44,6 +44,5 @@ and open the template in the editor.
             
             
         </form>
-           
     </body>
 </html>
