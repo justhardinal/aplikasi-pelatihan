@@ -44,7 +44,7 @@ insert into s_user_role(id_user,id_role)
 
 select username, password, active as enabled from s_users where username = "hardinal";
 
-select r.nama as authority
+select u.username,r.nama as authority
     from s_users u join s_user_role ur on u.id=ur.id_user
         join s_roles r on ur.id_role = r.id
     where u.username = "hardinal";

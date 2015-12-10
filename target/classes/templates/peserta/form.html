@@ -12,7 +12,7 @@ and open the template in the editor.
     </head>
     <body>
         <h1>Tambah Peserta</h1>
-        
+
         <form action="#" th:action="@{/peserta/form}" th:object="${peserta}" method="post">
             <table border="1">
                 <tbody>
@@ -21,33 +21,36 @@ and open the template in the editor.
                         <td><input type="text" th:field="*{nama}" /></td>
                         <td th:if="${#fields.hasErrors('nama')}" th:errors="*{nama}"></td>
                     </tr>
-                    
+
                     <tr>
                         <td>Email</td>
                         <td><input type="text" th:field="*{email}" /></td>
                         <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></td>
                     </tr>
-                    
+
                     <tr>
                         <td>Tanggal Lahir</td>
                         <td><input type="text" th:field="*{tanggalLahir}" /></td>
                         <td th:if="${#fields.hasErrors('tanggalLahir')}" th:errors="*{tanggalLahir}"></td>
                     </tr>
-                    
+
                     <tr>
                         <td><input type="submit" value="Simpan"/></td>
                         <td>&nbsp;</td>
                     </tr>
-                    <a href="list.html" th:href="@{/peserta/list}">
-                        Kembali Ke Daftar Peserta
-                    </a>
+                <a href="list.html" th:href="@{/peserta/list}">
+                    Kembali Ke Daftar Peserta
+                </a>
+                <form name="f" th:action="@{/logout}" method="post">
+                    <input type="submit" value ="Logout" />
+                </form>
 
                 </tbody>
             </table>
 
-            
-            
+
+
         </form>
-           
+
     </body>
 </html>
