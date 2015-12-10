@@ -3,6 +3,7 @@ com\fahmi\hardinal\pelatihan\AplikasiPelatihanApplication.class
 com\fahmi\hardinal\pelatihan\dao\PesertaDao.class
 com\fahmi\hardinal\pelatihan\controller\PesertaHtmlController.class
 com\fahmi\hardinal\pelatihan\entity\Peserta.class
+com\fahmi\hardinal\pelatihan\config\KonfigurasiWeb.class
 com\fahmi\hardinal\pelatihan\dao\SesiDao.class
 com\fahmi\hardinal\pelatihan\controller\PesertaController.class
 com\fahmi\hardinal\pelatihan\controller\HaloController.class
