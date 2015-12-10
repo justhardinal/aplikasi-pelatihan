@@ -44,6 +44,10 @@ and open the template in the editor.
                 <a href="list.html" th:href="@{/peserta/list}">
                     Kembali Ke Daftar Peserta
                 </a>
+
+                <form name="f" th:action="@{/logout}" method="post">
+                    <input type="submit" value ="Logout" />
+                </form>
                 </tbody>
             </table>
 
