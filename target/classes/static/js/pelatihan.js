@@ -6,12 +6,12 @@ aplikasiPelatihan.controller('HaloController', function ($scope) {
         'just.hardinal@gmail.com'
     ];
 
-    $scope.tambahEmail = function () {
+    $scope.tambahEmail = function() {
         $scope.daftarEmail.push($scope.email);
         //$scope.email="";
     };
 
-    $scope.hapusEmail = function (x) {
+    $scope.hapusEmail = function(x) {
         var lokasiIndex = $scope.daftarEmail.indexOf(x);
         if (lokasiIndex > -1) {
             $scope.daftarEmail.splice(lokasiIndex, 1);
@@ -19,11 +19,11 @@ aplikasiPelatihan.controller('HaloController', function ($scope) {
     };
 });
 
-aplikasiPelatihan.controller('MateriController', function ($http, $scope) {
+aplikasiPelatihan.controller('MateriController', function($http, $scope) {
     $scope.dataMateri = {};
     
-    $scope.hapusMateri = function (x){
-        $http.delete('/api/materi' +x.id).then(sukses, gagal);
+    $scope.hapusMateri = function(x){
+        $http.delete('/api/materi/'+x.id).then(sukses, gagal);
         function sukses(response) {
             $scope.UpdateDataMateri();
         };
@@ -34,18 +34,17 @@ aplikasiPelatihan.controller('MateriController', function ($http, $scope) {
         };
     };
     
-    $scope.UpdateDataMateri = function () {
+    $scope.UpdateDataMateri = function() {
         $http.get('/api/materi').then(sukses, gagal);
 
         function sukses(response) {
-            alert('sukses = '+response);
             $scope.dataMateri = response.data;
             console.log($scope.dataMateri);
         };
 
         function gagal(response) {
             console.log(response);
-            alert('error = ' + response);
+            alert('error = ' +response);
         };
     };
     
