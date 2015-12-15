@@ -10,4 +10,5 @@ D:\HDL\Project\aplikasi-pelatihan\src\main\java\com\fahmi\hardinal\pelatihan\ent
 D:\HDL\Project\aplikasi-pelatihan\src\main\java\com\fahmi\hardinal\pelatihan\controller\HaloController.java
 D:\HDL\Project\aplikasi-pelatihan\src\main\java\com\fahmi\hardinal\pelatihan\entity\Sesi.java
 D:\HDL\Project\aplikasi-pelatihan\src\main\java\com\fahmi\hardinal\pelatihan\controller\PesertaHtmlController.java
+D:\HDL\Project\aplikasi-pelatihan\src\main\java\com\fahmi\hardinal\pelatihan\config\CsrfAttributeToCookieFilter.java
 D:\HDL\Project\aplikasi-pelatihan\src\main\java\com\fahmi\hardinal\pelatihan\entity\Materi.java

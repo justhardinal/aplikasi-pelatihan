@@ -22,6 +22,19 @@ aplikasiPelatihan.controller('HaloController', function ($scope) {
 aplikasiPelatihan.controller('MateriController', function($http, $scope) {
     $scope.dataMateri = {};
     
+    $scope.simpanMateri = function (){
+        $http.post('/api/materi', $scope.materi ).then(sukses, gagal);
+        function sukses(response) {
+            $scope.UpdateDataMateri();
+        };
+
+        function gagal(response) {
+            console.log(response);
+            alert('error = ' +response);
+        };
+    };
+    
+    
     $scope.hapusMateri = function(x){
         $http.delete('/api/materi/'+x.id).then(sukses, gagal);
         function sukses(response) {

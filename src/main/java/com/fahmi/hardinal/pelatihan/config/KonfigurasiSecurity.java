@@ -7,6 +7,9 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
+import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.security.web.csrf.CsrfTokenRepository;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
 @Configuration
 @EnableWebMvcSecurity
@@ -47,8 +50,17 @@ public class KonfigurasiSecurity extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .defaultSuccessUrl("/halo")
                 .and()
-                .logout();
-                        
+                .logout()
+                .and()
+                .addFilterAfter(new CsrfAttributeToCookieFilter(), CsrfFilter.class)
+                .csrf().csrfTokenRepository(csrfTokenRepository());
+
+    }
+
+    private CsrfTokenRepository csrfTokenRepository() {
+        HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+        repository.setHeaderName("X-XSRF-TOKEN");
+        return repository;
     }
 
 }
