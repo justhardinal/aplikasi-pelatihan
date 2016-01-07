@@ -37,8 +37,7 @@ public class PesertaDaoTest {
              c.createStatement().executeUpdate(sql);
          }
     }
-    
-    @Test
+ 
     public void testInsert() throws SQLException {
         Peserta p = new Peserta();
         p.setNama("Peserta 001");
